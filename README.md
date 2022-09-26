@@ -1,3 +1,7 @@
-# Typescript tutorial by Matt Pocock
+# Typescript tutorials by Matt Pocock
 
-[total-typescript](https://github.com/total-typescript)
+This is a bundle of typescript tutorials by Matt Pocock.
+
+[total-typescript website](https://www.totaltypescript.com/)
+
+[total-typescript github](https://github.com/total-typescript)
