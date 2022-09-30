@@ -1,5 +1,5 @@
-import { expect, it } from "vitest";
-import { Equal, Expect } from "../helpers/type-utils";
+import { expect, it } from 'vitest';
+import { Equal, Expect } from '../helpers/type-utils';
 
 export class Component<TProps> {
   private props: TProps;
@@ -11,9 +11,11 @@ export class Component<TProps> {
   getProps = () => this.props;
 }
 
-const cloneComponent = (component: unknown) => {};
+const cloneComponent = <TProps>(component: Component<TProps>) => {
+  return new Component(component.getProps());
+};
 
-it("Should clone the props from a passed-in Component", () => {
+it('Should clone the props from a passed-in Component', () => {
   const component = new Component({ a: 1, b: 2, c: 3 });
 
   const clonedComponent = cloneComponent(component);
@@ -22,7 +24,5 @@ it("Should clone the props from a passed-in Component", () => {
 
   expect(result).toEqual({ a: 1, b: 2, c: 3 });
 
-  type tests = [
-    Expect<Equal<typeof result, { a: number; b: number; c: number }>>,
-  ];
+  type tests = [Expect<Equal<typeof result, { a: number; b: number; c: number }>>];
 });
